@@ -1,17 +1,24 @@
 {
-    "name": "WorkLab Development Environment",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "dev",
-    "workspaceFolder": "/work",
-    "settings": {
-      "eslint.workingDirectories": [
-        { "mode": "auto" }
-      ],
-    },
-    "extensions": [
-		"dbaeumer.vscode-eslint",
-		"mhutchie.git-graph",
-		"ms-vscode.vscode-typescript-next"
-	],
+  "name": "Suwaaa Development Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/work",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "eslint.workingDirectories": [
+          { "mode": "auto" }
+        ]
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "rebornix.Ruby",
+        "bung87.rails",
+        "hridoy.rails-snippets",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  },
 	"remoteUser": "root"
 }
