@@ -1,0 +1,25 @@
+/* StoreList.module.css */
+.storeList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .storeCard {
+    width: calc(50% - 20px);
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .storeImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .storeInfo {
+    margin-top: 10px;
+  }
+  
