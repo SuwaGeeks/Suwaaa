@@ -14,9 +14,11 @@ export default function Start() {
             はじめて利用する
           </Button>
         </Link>
-        <Button variant="contained" style={{ backgroundColor: '#D9D9D9', color: 'black' }} className={styles.button}>
-          アカウントを持っている
-        </Button>
+        <Link href="/login" passHref>
+          <Button variant="contained" style={{ backgroundColor: '#D9D9D9', color: 'black' }} className={styles.button}>
+            アカウントを持っている
+          </Button>
+        </Link>
       </div>
       <Typography variant="body2" className={styles.footer}>
         本サービスの利用開始により、
