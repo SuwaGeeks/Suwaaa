@@ -3,26 +3,30 @@
 import { useState } from 'react';
 import { Button, Container, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import styles from './page.module.css';
+import TopBar from '../../components/TopBar';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isValid, setIsValid] = useState(false);
-
-  const checkPassword = (password) => {
-    const hasNumber = /\d/.test(password);
-    const hasLetter = /[a-zA-Z]/.test(password);
-    return hasNumber && hasLetter && password.length >= 6;
-  };
+  const [isLengthValid, setIsLengthValid] = useState(false);
+  const [isCharacterValid, setIsCharacterValid] = useState(false);
 
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-    setIsValid(checkPassword(newPassword));
+
+    // Check if password length is 6 or more
+    setIsLengthValid(newPassword.length >= 6);
+
+    // Check if password contains at least one uppercase letter and one special character
+    const hasUppercase = /[A-Z]/.test(newPassword);
+    const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(newPassword);
+    setIsCharacterValid(hasUppercase && hasSpecialCharacter);
   };
 
   return (
     <Container className={styles.container}>
+      <TopBar goBackTo="/start" pageTitle="サインアップ" />
       <TextField
         label="メールアドレス"
         variant="outlined"
@@ -36,17 +40,16 @@ export default function Signup() {
         onChange={handlePasswordChange}
       />
       <FormControlLabel
-        control={<Checkbox checked={isValid} />}
+        control={<Checkbox checked={isLengthValid} />}
         label="パスワードは6文字以上"
       />
       <FormControlLabel
-        control={<Checkbox checked={isValid} />}
-        label="パスワードには半角英数字が含まれている"
+        control={<Checkbox checked={isCharacterValid} />}
+        label="パスワードには大文字と特殊文字が含まれている"
       />
       <Button
         variant="contained"
-        className={isValid ? styles.button : styles.disabledButton}
-        disabled={!isValid}
+        disabled={!(isLengthValid && isCharacterValid)}
       >
         メールアドレスで登録
       </Button>
