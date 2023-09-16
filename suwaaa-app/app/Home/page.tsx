@@ -9,10 +9,10 @@ const Home: React.FC = () => {
   const stores = [
     {
       id: '1',
-      name: '店舗1',
-      genre: 'ジャンル1',
-      message: '一言メッセージ1',
-      thumbnail: 'thumbnail1.jpg',
+      name: 'Suwaaa茅野本店',
+      genre: 'ラーメン',
+      message: '学生の皆さんお待ちしております',
+      thumbnail: '/test.jpeg',
     },
     {
       id: '2',
@@ -20,6 +20,20 @@ const Home: React.FC = () => {
       genre: 'ジャンル2',
       message: '一言メッセージ2',
       thumbnail: 'thumbnail2.jpg',
+    },
+    {
+        id: '3',
+        name: '店舗3',
+        genre: 'ジャンル2',
+        message: '一言メッセージ2',
+        thumbnail: 'thumbnail2.jpg',
+    },
+    {
+        id: '4',
+        name: '店舗4',
+        genre: 'ジャンル2',
+        message: '一言メッセージ2',
+        thumbnail: 'thumbnail2.jpg',
     },
   ];
 
