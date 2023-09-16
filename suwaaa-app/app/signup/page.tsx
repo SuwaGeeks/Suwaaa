@@ -1,4 +1,4 @@
-// signup/page.tsx
+// pages/signup.tsx
 'use client'
 import { useState } from 'react';
 import { Button, Container, TextField, Checkbox, FormControlLabel } from '@mui/material';
@@ -10,6 +10,13 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [isLengthValid, setIsLengthValid] = useState(false);
   const [isCharacterValid, setIsCharacterValid] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setIsValidEmail(newEmail.includes('@'));
+  };
 
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
@@ -30,7 +37,7 @@ export default function Signup() {
           label="メールアドレス"
           variant="outlined"
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
         />
         <TextField
           className={styles.inputField}
@@ -42,6 +49,10 @@ export default function Signup() {
       </div>
       <div className={styles.checkboxContainer}>
         <FormControlLabel
+          control={<Checkbox checked={isValidEmail} />}
+          label="有効なメールアドレスを入力"
+        />
+        <FormControlLabel
           control={<Checkbox checked={isLengthValid} />}
           label="パスワードは6文字以上"
         />
@@ -52,8 +63,8 @@ export default function Signup() {
       </div>
       <Button
         variant="contained"
-        className={isLengthValid && isCharacterValid ? styles.buttonEnabled : styles.buttonDisabled}
-        disabled={!(isLengthValid && isCharacterValid)}
+        className={isValidEmail && isLengthValid && isCharacterValid ? styles.buttonEnabled : styles.buttonDisabled}
+        disabled={!(isValidEmail && isLengthValid && isCharacterValid)}
       >
         メールアドレスで登録
       </Button>

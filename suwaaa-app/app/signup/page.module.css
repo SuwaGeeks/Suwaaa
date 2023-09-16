@@ -11,6 +11,10 @@
     margin-top: 20px;
     background-color: #217178;
     color: white;
+    width: 250px;
+    font-size: 1.0rem;
+    padding: 12px 24px;
+    border-radius: 12px;
   }
   
   .disabledButton {
