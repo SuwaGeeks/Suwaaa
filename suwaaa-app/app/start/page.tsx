@@ -10,11 +10,11 @@ export default function Start() {
       <img src="/Suwaaa-logo.png" alt="Suwaaa Logo" className={styles.logo} />
       <div className={styles.buttonContainer}>
         <Link href="/signup" passHref>
-          <Button variant="contained" style={{ backgroundColor: '#217178', color: 'white' }}>
+          <Button variant="contained" style={{ backgroundColor: '#217178', color: 'white' }} className={styles.button}>
             はじめて利用する
           </Button>
         </Link>
-        <Button variant="contained" style={{ backgroundColor: '#D9D9D9', color: 'black' }}>
+        <Button variant="contained" style={{ backgroundColor: '#D9D9D9', color: 'black' }} className={styles.button}>
           アカウントを持っている
         </Button>
       </div>
@@ -30,4 +30,3 @@ export default function Start() {
     </Container>
   );
 }
-
