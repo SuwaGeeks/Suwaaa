@@ -11,7 +11,6 @@
     margin-top: 20px;
     background-color: #217178;
     color: white;
-    width: 250px;
   }
   
   .disabledButton {
@@ -46,10 +45,18 @@
   .buttonEnabled {
     background-color: #217178;
     color: white;
+    width: 250px;
+    font-size: 1.0rem;
+    padding: 12px 24px;
+    border-radius: 12px;
   }
   
   .buttonDisabled {
     background-color: #D9D9D9;
     color: black;
+    width: 250px;
+    font-size: 1.0rem;
+    padding: 12px 24px;
+    border-radius: 12px;
   }
   
