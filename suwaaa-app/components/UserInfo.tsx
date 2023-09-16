@@ -1,6 +1,6 @@
 // components/UserInfoBar.tsx
 import React from 'react';
-import styles from './UserInfoBar.module.css';
+import styles from './UserInfo.module.css';
 import { Button } from '@mui/material';
 
 interface UserInfoBarProps {
