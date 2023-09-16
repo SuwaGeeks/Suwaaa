@@ -27,28 +27,35 @@ export default function Signup() {
   return (
     <Container className={styles.container}>
       <TopBar goBackTo="/start" pageTitle="サインアップ" />
-      <TextField
-        label="メールアドレス"
-        variant="outlined"
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <TextField
-        label="パスワード"
-        variant="outlined"
-        type="password"
-        onChange={handlePasswordChange}
-      />
-      <FormControlLabel
-        control={<Checkbox checked={isLengthValid} />}
-        label="パスワードは6文字以上"
-      />
-      <FormControlLabel
-        control={<Checkbox checked={isCharacterValid} />}
-        label="パスワードには大文字と特殊文字が含まれている"
-      />
+      <div className={styles.inputContainer}>
+        <TextField
+          className={styles.inputField}
+          label="メールアドレス"
+          variant="outlined"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          className={styles.inputField}
+          label="パスワード"
+          variant="outlined"
+          type="password"
+          onChange={handlePasswordChange}
+        />
+      </div>
+      <div className={styles.checkboxContainer}>
+        <FormControlLabel
+          control={<Checkbox checked={isLengthValid} />}
+          label="パスワードは6文字以上"
+        />
+        <FormControlLabel
+          control={<Checkbox checked={isCharacterValid} />}
+          label="パスワードには大文字と特殊文字が含まれている"
+        />
+      </div>
       <Button
         variant="contained"
+        className={isLengthValid && isCharacterValid ? styles.buttonEnabled : styles.buttonDisabled}
         disabled={!(isLengthValid && isCharacterValid)}
       >
         メールアドレスで登録
