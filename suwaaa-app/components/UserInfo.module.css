@@ -1,0 +1,18 @@
+/* UserInfoBar.module.css */
+.userInfoBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .userInfo {
+    text-align: left;
+  }
+  
+  .settingButton {
+    text-align: right;
+  }
+  
