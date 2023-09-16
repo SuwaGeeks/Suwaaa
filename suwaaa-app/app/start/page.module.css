@@ -42,8 +42,11 @@
 }
 
 .footer {
-  margin-top: 20px;
-  z-index: 1; /* フッターを前面に */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
 }
 
 
