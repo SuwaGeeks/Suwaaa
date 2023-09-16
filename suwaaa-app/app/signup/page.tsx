@@ -1,4 +1,4 @@
-// pages/signup.tsx
+// signup/page.tsx
 'use client'
 import { useState } from 'react';
 import { Button, Container, TextField, Checkbox, FormControlLabel } from '@mui/material';
@@ -14,11 +14,8 @@ export default function Signup() {
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPassword(newPassword);
-
-    // Check if password length is 6 or more
     setIsLengthValid(newPassword.length >= 6);
 
-    // Check if password contains at least one uppercase letter and one special character
     const hasUppercase = /[A-Z]/.test(newPassword);
     const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(newPassword);
     setIsCharacterValid(hasUppercase && hasSpecialCharacter);
