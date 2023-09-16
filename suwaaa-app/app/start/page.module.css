@@ -59,7 +59,7 @@
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .logo {
-    width: 70%;
+    width: 80%;
   }
 
   .button {
