@@ -10,12 +10,15 @@
     top: 0;
     z-index: 1000;
   }
-  
+
   .goBackButton {
     margin-left: 20px;
   }
   
   .pageTitle {
     font-size: 18px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
