@@ -22,7 +22,8 @@ model Users {
 }
 
 model Auth {
-  email     String   @id
+  id        Int      @id  @default(autoincrement())
+  email     String
   schoolId  String
   user      Users    @relation(fields: [email], references: [email])
   token     String   @default(uuid())
