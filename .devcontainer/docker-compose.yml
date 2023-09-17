@@ -7,3 +7,12 @@ services:
     volumes:
       - ../:/work:cached
       - ~/.ssh:/root/.ssh
+  db:
+    image: mariadb:10.9.3
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=suwaaa
+    volumes:
+      - ./db:/var/lib/mysql
