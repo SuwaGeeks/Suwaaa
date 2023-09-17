@@ -11,13 +11,14 @@ datasource db {
 }
 
 model Users {
-  email     String   @id @default(uuid())
-  password  String
-  schoolId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  Auth      Auth[]
-  Likes     Likes[]
+  email          String           @id @default(uuid())
+  password       String
+  schoolId       String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now())
+  Auth           Auth[]
+  Likes          Likes[]
+  BenefitHistory BenefitHistory[]
 }
 
 model Auth {
@@ -37,7 +38,7 @@ model Likes {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
-  @@unique ([email, shopId], name: "like_id")
+  @@unique([email, shopId], name: "like_id")
 }
 
 model Shops {
@@ -68,14 +69,25 @@ model Genres {
 }
 
 model Benefits {
+  id             Int              @id @default(autoincrement())
+  shopId         Int
+  shop           Shops            @relation(fields: [shopId], references: [id])
+  title          String
+  detail         String
+  term           String
+  target         String
+  isValid        Boolean
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now())
+  BenefitHistory BenefitHistory[]
+}
+
+model BenefitHistory {
   id        Int      @id @default(autoincrement())
-  shopId    Int
-  shop      Shops    @relation(fields: [shopId], references: [id])
-  title     String
-  detail    String
-  term      String
-  target    String
-  isValid   Boolean
+  benefitId Int
+  benefit   Benefits @relation(fields: [benefitId], references: [id])
+  email     String
+  user      Users    @relation(fields: [email], references: [email])
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
