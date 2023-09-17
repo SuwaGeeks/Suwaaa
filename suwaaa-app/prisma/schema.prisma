@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  email          String           @id @default(uuid())
+  password       String
+  schoolId       String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now())
+  Auth           Auth[]
+  Likes          Likes[]
+  BenefitHistory BenefitHistory[]
+}
+
+model Auth {
+  id        Int      @id  @default(autoincrement())
+  email     String
+  schoolId  String
+  user      Users    @relation(fields: [email], references: [email])
+  token     String   @default(uuid())
+  isValid   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Likes {
+  // id        Int      @id @default(autoincrement())
+  email     String
+  user      Users    @relation(fields: [email], references: [email])
+  shopId    Int
+  shop      Shops    @relation(fields: [shopId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@unique([email, shopId], name: "like_id")
+}
+
+model Shops {
+  id           Int        @id @default(autoincrement())
+  genreId      Int
+  genre        Genres     @relation(fields: [genreId], references: [id])
+  name         String
+  address      String
+  phone        String
+  openingHours String
+  holiday      String
+  url          String
+  menuAbout    String
+  mapUrl       String
+  message      String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now())
+  Likes        Likes[]
+  Benefits     Benefits[]
+}
+
+model Genres {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Shops     Shops[]
+}
+
+model Benefits {
+  id             Int              @id @default(autoincrement())
+  shopId         Int
+  shop           Shops            @relation(fields: [shopId], references: [id])
+  title          String
+  detail         String
+  term           String
+  target         String
+  isValid        Boolean
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now())
+  BenefitHistory BenefitHistory[]
+}
+
+model BenefitHistory {
+  id        Int      @id @default(autoincrement())
+  benefitId Int
+  benefit   Benefits @relation(fields: [benefitId], references: [id])
+  email     String
+  user      Users    @relation(fields: [email], references: [email])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
