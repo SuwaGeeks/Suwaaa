@@ -1,0 +1,26 @@
+name: Deploy
+on:
+  push:
+    branched:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: CheckOut
+      uses: actions/checkout@v2
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+        name: id_rsa
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        config: |
+          Host server
+            HostName suwaaa.net
+            User deployer
+            Port 21000
+            IdentityFile ~/.ssh/id_rsa
+    - name: Run Script
+      run: |
+        ssh server "cd /home/deployer/Suwaaa && sh deploy.sh"
