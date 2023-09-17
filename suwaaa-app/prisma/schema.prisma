@@ -29,13 +29,15 @@ model Auth {
 }
 
 model Likes {
-  id        Int      @id @default(autoincrement())
+  // id        Int      @id @default(autoincrement())
   email     String
   user      Users    @relation(fields: [email], references: [email])
   shopId    Int
   shop      Shops    @relation(fields: [shopId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+
+  @@unique ([email, shopId], name: "like_id")
 }
 
 model Shops {
