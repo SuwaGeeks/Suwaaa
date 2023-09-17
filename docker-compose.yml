@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    build: ./suwaaa-app/.
+    container_name: Suwaaa_App
+    command: /bin/bash -c "sleep 5 && yarn build && sleep 5 && yarn start"
+    depends_on:
+      - "db"
+    ports:
+      - 3000:3000
+    restart: always
+  db:
+    image: mariadb:10.9.3
+    container_name: Suwaaa_DB
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=suwaaa
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: always
