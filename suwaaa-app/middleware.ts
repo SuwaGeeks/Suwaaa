@@ -4,7 +4,8 @@ import { checkToken } from '@/app/api/utils/jwt'
 
 export const config = {
     matcher: [
-        '/api/user/:path*',
+        '/api/user/',
+        '/api/user/auth/',
         '/api/like/:path*',
         '/api/shops/:shopid/benefit',
         '/api/benefit/:id/use',
