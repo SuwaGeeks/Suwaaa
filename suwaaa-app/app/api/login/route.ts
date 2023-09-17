@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         )
     }
 
-    const token = createToken(email)
+    const token = await createToken(email)
 
     return NextResponse.json(
         {
