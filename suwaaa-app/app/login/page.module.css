@@ -13,14 +13,6 @@
   width: 100%;
 }
 
-.validateWrap {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 0.8rem;
-  margin-left: 20%;
-}
-
 .buttonWrap {
   text-align: center;
   margin-top: 20px;
@@ -37,22 +29,12 @@
   .inputField {
     width: 100%;
   }
-  .validateWrap {
-    margin-left: 0;
-  }
 }
 
-.buttonEnabled {
+.button {
+  margin-top: 20px;
   background-color: #217178;
   color: white;
-  width: 250px;
-  font-size: 1.0rem;
-  padding: 12px 24px;
-  border-radius: 12px;
-}
-.buttonDisabled {
-  background-color: #D9D9D9;
-  color: black;
   width: 250px;
   font-size: 1.0rem;
   padding: 12px 24px;
