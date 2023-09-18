@@ -30,13 +30,14 @@ export default function Login() {
   return (
     <Container className={styles.container}>
       <TopBar goBackTo="/" pageTitle="ログイン" />
-      <div className={styles.inputWrap}>
+      <form className={styles.inputWrap}>
         <TextField
           className={styles.inputField}
           label="メールアドレス"
           variant="outlined"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="on"
         />
         <TextField
           className={styles.inputField}
@@ -44,17 +45,18 @@ export default function Login() {
           variant="outlined"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="on"
         />
-        <div className={styles.buttonWrap}>
-          <Button
-            variant="contained"
-            className={styles.button}
-            disabled={!email || !password}
-            onClick={() => {login(email, password)}}
-          >
-            ログイン
-          </Button>
-        </div>
+      </form>
+      <div className={styles.buttonWrap}>
+        <Button
+          variant="contained"
+          className={styles.button}
+          disabled={!email || !password}
+          onClick={() => {login(email, password)}}
+        >
+          ログイン
+        </Button>
       </div>
     </Container>
   );

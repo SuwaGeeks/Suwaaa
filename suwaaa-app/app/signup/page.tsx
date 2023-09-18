@@ -49,22 +49,24 @@ export default function Signup() {
   return (
     <Container className={styles.container}>
       <TopBar goBackTo="/" pageTitle="サインアップ" />
-      <div className={styles.inputWrap}>
-        <TextField
-          className={styles.inputField}
-          label="メールアドレス"
-          variant="outlined"
-          type="email"
-          onChange={handleEmailChange}
-        />
-        <TextField
-          className={styles.inputField}
-          label="パスワード"
-          variant="outlined"
-          type="password"
-          onChange={handlePasswordChange}
-        />
-      </div>
+      <form className={styles.inputWrap}>
+          <TextField
+            className={styles.inputField}
+            label="メールアドレス"
+            variant="outlined"
+            type="email"
+            onChange={handleEmailChange}
+            autoComplete="on"
+          />
+          <TextField
+            className={styles.inputField}
+            label="パスワード"
+            variant="outlined"
+            type="password"
+            onChange={handlePasswordChange}
+            autoComplete="on"
+          />
+      </form>
       <div className={styles.validateWrap}>
         <FormControlLabel
           control={<Checkbox checked={isValidEmail} />}
