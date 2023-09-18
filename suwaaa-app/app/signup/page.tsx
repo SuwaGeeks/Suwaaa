@@ -1,11 +1,14 @@
 // pages/signup.tsx
 'use client'
 import { useState, ChangeEvent } from 'react';
+import { useRouter } from 'next/navigation'
 import { Button, Container, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import styles from './page.module.css';
 import TopBar from '../../components/TopBar';
 
 export default function Signup() {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLengthValid, setIsLengthValid] = useState(false);
@@ -27,6 +30,21 @@ export default function Signup() {
     const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(newPassword);
     setIsCharacterValid(hasUppercase && hasSpecialCharacter);
   };
+
+  const signup = async (email: string, password: string) => {
+    try {
+      const res = await fetch('/api/signup',
+        {
+          method: 'POST',
+          body: JSON.stringify({ email, password })
+        }
+      )
+      console.log(res)
+      router.push('/home')
+    } catch(e) {
+      alert('ログインに失敗しました')
+    }
+  }
 
   return (
     <Container className={styles.container}>
@@ -66,6 +84,7 @@ export default function Signup() {
           variant="contained"
           className={isValidEmail && isLengthValid && isCharacterValid ? styles.buttonEnabled : styles.buttonDisabled}
           disabled={!(isValidEmail && isLengthValid && isCharacterValid)}
+          onClick={() => {signup(email, password)}}
         >
           メールアドレスで登録
         </Button>
