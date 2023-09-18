@@ -2,7 +2,7 @@
 'use client'
 import { useState } from 'react';
 import { Button, Container, TextField } from '@mui/material';
-import styles from '../signup/page.module.css';
+import styles from './page.module.css';
 import TopBar from '../../components/TopBar';
 
 export default function Login() {
@@ -11,8 +11,8 @@ export default function Login() {
 
   return (
     <Container className={styles.container}>
-      <TopBar goBackTo="/start" pageTitle="ログイン" />
-      <div className={styles.inputContainer}>
+      <TopBar goBackTo="/" pageTitle="ログイン" />
+      <div className={styles.inputWrap}>
         <TextField
           className={styles.inputField}
           label="メールアドレス"
@@ -27,13 +27,15 @@ export default function Login() {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button
-          variant="contained"
-          className={styles.button}
-          disabled={!email || !password}
-        >
-          ログイン
-        </Button>
+        <div className={styles.buttonWrap}>
+          <Button
+            variant="contained"
+            className={styles.button}
+            disabled={!email || !password}
+          >
+            ログイン
+          </Button>
+        </div>
       </div>
     </Container>
   );
