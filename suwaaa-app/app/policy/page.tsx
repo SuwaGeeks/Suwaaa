@@ -1,5 +1,5 @@
 // start/policy/page.tsx
-import TopBar from '../../../components/TopBar';
+import TopBar from '../../components/TopBar';
 import styles from './page.module.css';
 
 export default function Policy() {
