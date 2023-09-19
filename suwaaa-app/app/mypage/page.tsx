@@ -1,32 +1,25 @@
 // pages/login.tsx
 'use client'
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'
 import { Button, Container } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import styles from './page.module.css';
-import TopBar from '../../components/TopBar';
 
 export default function Login() {
-  const router = useRouter();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const login = async (email: string, password: string) => {
-    try {
-      const res = await fetch('/api/login',
-        {
-          method: 'POST',
-          body: JSON.stringify({ email, password })
-        }
-      )
-      console.log(res)
-      router.push('/home')
-    } catch(e) {
-      alert('ログインに失敗しました')
+  const [name, setName] = useState('')
+  const [id, setId] = useState('')
+  const [likes, setLikes] = useState([
+    {
+      name: "店舗1"
+    },
+    {
+      name: "店舗1"
+    },
+    {
+      name: "店舗1"
     }
-  }
+  ])
 
   return (
     <Container className={styles.container}>
@@ -35,8 +28,8 @@ export default function Login() {
           <img className={styles.profileImg} />
         </div>
         <div>
-          <h4>Kento</h4>
-          <span>SuwaaaID: Kento210</span>
+          <h4>{ name }</h4>
+          <span>SuwaaaID: { id }</span>
         </div>
         <div>
           <Button variant="outlined">
@@ -49,22 +42,14 @@ export default function Login() {
           お気に入り
         </h2>
         <div className={styles.shopsWrap}>
-          <div className={styles.shopCard}>
-            <img />
-            <p>店舗名</p>
-          </div>
-          <div className={styles.shopCard}>
-            <img />
-            <p>店舗名</p>
-          </div>
-          <div className={styles.shopCard}>
-            <img />
-            <p>店舗名</p>
-          </div>
-          <div className={styles.shopCard}>
-            <img />
-            <p>店舗名</p>
-          </div>
+          {likes.map((like, index) => {
+            return (
+              <div className={styles.shopCard} key={ index }>
+                <img />
+                <p>{ like.name }</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </Container>
