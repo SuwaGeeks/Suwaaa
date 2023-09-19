@@ -1,0 +1,24 @@
+/* TopBar.module.css */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.goBackButton {
+  margin-left: 20px;
+}
+
+.pageTitle {
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
