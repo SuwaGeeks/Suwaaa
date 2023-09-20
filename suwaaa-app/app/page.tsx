@@ -4,10 +4,11 @@ import styles from './page.module.css';
 
 export default function Start() {
   return (
-    <Container className={styles.container}>
-      <img src="/image_green.png" alt="Background" className={styles.backgroundImage} />
-      <img src="/Suwaaa-logo.png" alt="Suwaaa Logo" className={styles.logo} />
-      <div className={styles.buttonContainer}>
+    <div className={styles.container}>
+      <div className={styles.logoContainer}>
+        <img src="/Suwaaa-start.png" alt="Suwaaa Logo" className={styles.logo} />
+      </div>
+      <div className={styles.actionContainer}>
         <Link href="/signup" passHref>
           <Button variant="contained" style={{ backgroundColor: '#217178', color: 'white' }} className={styles.button}>
             はじめて利用する
@@ -19,15 +20,17 @@ export default function Start() {
           </Button>
         </Link>
       </div>
-      <Typography variant="body2" className={styles.footer}>
-        本サービスの利用開始により、
-        <Link href="/start/policy" passHref>
-          <Typography component="span" variant="body2" style={{ textDecoration: 'underline', cursor: 'pointer' }}>
-            利用規約
-          </Typography>
-        </Link>
-        とプライバシーポリシーに同意したことになります。
-      </Typography>
-    </Container>
+      <Container className={styles.termContainer}>
+        <Typography variant="body2" className={styles.footer}>
+          本サービスの利用開始により、
+          <Link href="/start/policy" passHref>
+            <Typography component="span" variant="body2" style={{ textDecoration: 'underline', cursor: 'pointer' }}>
+              利用規約
+            </Typography>
+          </Link>
+          とプライバシーポリシーに同意したことになります。
+        </Typography>
+      </Container>
+    </div>
   );
 }
