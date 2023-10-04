@@ -20,4 +20,4 @@ jobs:
       run: yarn install
     - name: Run test
       working-directory: ./suwaaa-app
-      run: next lint
+      run: yarn lint
