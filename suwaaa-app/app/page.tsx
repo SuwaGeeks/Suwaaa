@@ -48,7 +48,7 @@ export default function Start() {
       </div>
       <Typography variant="body2" className={styles.footer}>
         本サービスの利用開始により、
-        <Link href="/start/policy" passHref>
+        <Link href="/terms" passHref>
           <Typography
             component="span"
             variant="body2"
