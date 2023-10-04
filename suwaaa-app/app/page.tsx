@@ -1,21 +1,47 @@
-import { Button, Container, Typography } from '@mui/material';
+import {
+  Button,
+  Container,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Start() {
   return (
     <Container className={styles.container}>
-      <Image src="/image_green.png" alt="Background" className={styles.backgroundImage} />
-      <Image src="/Suwaaa-logo.png" alt="Suwaaa Logo" className={styles.logo} />
+      <Image
+        src="/image_green.png"
+        alt="Background"
+        className={styles.backgroundImage}
+      />
+      <Image
+        src="/Suwaaa-logo.png"
+        alt="Suwaaa Logo"
+        className={styles.logo}
+      />
       <div className={styles.buttonContainer}>
         <Link href="/signup" passHref>
-          <Button variant="contained" style={{ backgroundColor: '#217178', color: 'white' }} className={styles.button}>
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: '#217178',
+              color: 'white',
+            }}
+            className={styles.button}
+          >
             はじめて利用する
           </Button>
         </Link>
         <Link href="/login" passHref>
-          <Button variant="contained" style={{ backgroundColor: '#D9D9D9', color: 'black' }} className={styles.button}>
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: '#D9D9D9',
+              color: 'black',
+            }}
+            className={styles.button}
+          >
             アカウントを持っている
           </Button>
         </Link>
@@ -23,7 +49,14 @@ export default function Start() {
       <Typography variant="body2" className={styles.footer}>
         本サービスの利用開始により、
         <Link href="/start/policy" passHref>
-          <Typography component="span" variant="body2" style={{ textDecoration: 'underline', cursor: 'pointer' }}>
+          <Typography
+            component="span"
+            variant="body2"
+            style={{
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
             利用規約
           </Typography>
         </Link>
