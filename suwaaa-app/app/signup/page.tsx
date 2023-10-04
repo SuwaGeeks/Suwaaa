@@ -71,7 +71,7 @@ export default function Signup() {
             <ArrowBackIosNewIcon />
           </IconButton>
         </Link>
-        <Typography sx={{width: "calc(100% - 80px)", textAlign: "center"}}>新規登録</Typography>
+        <Typography sx={{width: "calc(100% - 80px)", textAlign: "center", fontWeight: "bold"}}>新規登録</Typography>
       </Box>
       <Container className={styles.container}>
         <Stack gap={3} pt={5}>
