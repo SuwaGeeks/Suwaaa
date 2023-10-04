@@ -8,9 +8,9 @@ import styles from './page.module.css';
 
 export default function Login() {
 
-  const [name, _] = useState('')
-  const [id, _] = useState('')
-  const [likes, _] = useState([
+  const [name, _setName] = useState('')
+  const [id, _setId] = useState('')
+  const [likes, _setLikes] = useState([
     {
       name: "店舗1"
     },

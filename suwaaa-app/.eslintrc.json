@@ -4,5 +4,16 @@
         "node": true,
         "es2022": true
     },
-    "extends": ["eslint:recommended", "next/core-web-vitals"]
+    "extends": ["eslint:recommended", "next/core-web-vitals"],
+    "rules": {
+        "no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_",
+                "destructuredArrayIgnorePattern": "^_"
+            }
+        ]
+    }
 }
