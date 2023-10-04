@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Typography,
@@ -10,16 +11,24 @@ import styles from './page.module.css';
 export default function Start() {
   return (
     <Container className={styles.container}>
-      <Image
-        src="/image_green.png"
-        alt="Background"
-        className={styles.backgroundImage}
-      />
-      <Image
-        src="/Suwaaa-logo.png"
-        alt="Suwaaa Logo"
-        className={styles.logo}
-      />
+      <Box className={styles.logoBox}>
+        <Image
+          src="/image_green.png"
+          width={670}
+          height={480}
+          objectFit="contain"
+          alt="Background"
+          className={styles.backgroundImage}
+        />
+        <Image
+          src="/Suwaaa-logo.png"
+          width={500}
+          height={500}
+          objectFit="contain"
+          alt="Suwaaa Logo"
+          className={styles.logo}
+        />
+      </Box>
       <div className={styles.buttonContainer}>
         <Link href="/signup" passHref>
           <Button
