@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
 import { StartAffiliationAuth } from '@/app/api/utils/AffiliationAuth'
 import { checkToken } from '@/app/api/utils/jwt'
 import dayjs from 'dayjs'
-
-const prisma = new PrismaClient()
 
 export async function POST(req: Request) {
     const email = String(await checkToken(String(req.headers.get('token'))))

@@ -1,4 +1,5 @@
 // components/TopBar.tsx
+import { FC } from 'react'
 import Link from 'next/link';
 import styles from './TopBar.module.css';
 
@@ -7,7 +8,7 @@ interface TopBarProps {
   pageTitle: string;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ goBackTo, pageTitle }) => {
+const TopBar: FC<TopBarProps> = ({ goBackTo, pageTitle }) => {
   return (
     <div className={styles.topBar}>
       <Link href={goBackTo} passHref>

@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
 import { CheckAffiliationAuth } from '@/app/api/utils/AffiliationAuth'
-import dayjs from 'dayjs'
-
-const prisma = new PrismaClient()
 
 type Props = {
     params: {

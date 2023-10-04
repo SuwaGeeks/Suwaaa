@@ -1,13 +1,11 @@
 // pages/signup.tsx
 'use client'
 import { useState, ChangeEvent } from 'react';
-import { useRouter } from 'next/navigation'
 import { Button, Container, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import styles from './page.module.css';
 import TopBar from '../../components/TopBar';
 
 export default function Signup() {
-  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +25,7 @@ export default function Signup() {
     setIsLengthValid(newPassword.length >= 6);
 
     const hasUppercase = /[A-Z]/.test(newPassword);
-    const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(newPassword);
+    const hasSpecialCharacter = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/.test(newPassword);
     setIsCharacterValid(hasUppercase && hasSpecialCharacter);
   };
 
@@ -40,7 +38,7 @@ export default function Signup() {
         }
       )
       console.log(res)
-      router.push('/home')
+      // router.push('/home')
     } catch(e) {
       alert('ログインに失敗しました')
     }

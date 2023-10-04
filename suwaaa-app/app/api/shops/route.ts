@@ -22,7 +22,7 @@ type getShopsResponse = {
     }>
 }
 
-export async function GET(request: Request) {
+export async function GET() {
     const shops = await prisma.shops.findMany()
     const res: getShopsResponse = {
         count: shops.length,

@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
 import { checkToken } from '../../utils/jwt'
-import { promiseHooks } from 'v8'
 
 const prisma = new PrismaClient()
 
@@ -77,7 +76,7 @@ export async function POST(req: Request, props: Props) {
     }
 
     if (like) {
-        const _like = await prisma.likes.delete({
+        await prisma.likes.delete({
             where: {
                 like_id: {
                     email: email,
@@ -91,7 +90,7 @@ export async function POST(req: Request, props: Props) {
             isLike: false
         })
     } else {
-        const _like = await prisma.likes.create({
+        await prisma.likes.create({
             data: {
                 email: email,
                 shopId: Number(props.params.shopId)

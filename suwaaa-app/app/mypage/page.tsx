@@ -1,15 +1,16 @@
 // pages/login.tsx
 'use client'
 import { useState } from 'react';
+import Image from 'next'
 import { Button, Container } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import styles from './page.module.css';
 
 export default function Login() {
 
-  const [name, setName] = useState('')
-  const [id, setId] = useState('')
-  const [likes, setLikes] = useState([
+  const [name, _] = useState('')
+  const [id, _] = useState('')
+  const [likes, _] = useState([
     {
       name: "店舗1"
     },
@@ -25,7 +26,7 @@ export default function Login() {
     <Container className={styles.container}>
       <div className={styles.profileWrap}>
         <div>
-          <img className={styles.profileImg} />
+          <Image className={styles.profileImg} alt="user-icon" />
         </div>
         <div>
           <h4>{ name }</h4>
@@ -45,7 +46,7 @@ export default function Login() {
           {likes.map((like, index) => {
             return (
               <div className={styles.shopCard} key={ index }>
-                <img />
+                <Image alt="shop-image" />
                 <p>{ like.name }</p>
               </div>
             )

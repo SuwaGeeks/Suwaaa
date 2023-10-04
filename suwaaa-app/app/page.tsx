@@ -1,12 +1,13 @@
 import { Button, Container, Typography } from '@mui/material';
 import Link from 'next/link';
+import Image from 'next/image'
 import styles from './page.module.css';
 
 export default function Start() {
   return (
     <Container className={styles.container}>
-      <img src="/image_green.png" alt="Background" className={styles.backgroundImage} />
-      <img src="/Suwaaa-logo.png" alt="Suwaaa Logo" className={styles.logo} />
+      <Image src="/image_green.png" alt="Background" className={styles.backgroundImage} />
+      <Image src="/Suwaaa-logo.png" alt="Suwaaa Logo" className={styles.logo} />
       <div className={styles.buttonContainer}>
         <Link href="/signup" passHref>
           <Button variant="contained" style={{ backgroundColor: '#217178', color: 'white' }} className={styles.button}>

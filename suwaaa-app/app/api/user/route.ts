@@ -13,7 +13,7 @@ export async function GET(req: Request) {
         }
     })
 
-    return !!user ? 
+    return user ? 
         NextResponse.json({
             user: {
                 email: user.email,
