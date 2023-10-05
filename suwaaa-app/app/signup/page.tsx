@@ -19,11 +19,11 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import styles from './page.module.css';
 
 export default function Signup() {
-  const router = useRouter();
+  const _router = useRouter();
   const [showAlert, setShowAlert] = useState(false);
-  const [email, setEmail] = useState('');
-  const [schoolEmail, setSchoolEmaill] = useState('');
-  const [password, setPassword] = useState('');
+  const [_email, setEmail] = useState('');
+  const [_schoolEmail, setSchoolEmaill] = useState('');
+  const [_password, setPassword] = useState('');
   const [isLengthValid, setIsLengthValid] = useState(false);
   const [isCharacterValid, setIsCharacterValid] =
     useState(false);
