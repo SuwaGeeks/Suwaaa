@@ -62,7 +62,7 @@ export default function Signup() {
 
     const hasUppercase = /[A-Z]/.test(password);
     const hasSpecialCharacter =
-      /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(
+    /[!@#$%^&*()_+\-={};"|,.<>/?]+/.test(
         password
       );
     setIsCharacterValid(
