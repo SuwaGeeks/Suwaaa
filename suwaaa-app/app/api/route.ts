@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
-    return NextResponse.json({
-        version: '1.0.6'
-    })
+export async function GET() {
+  return NextResponse.json({
+    version: '1.0.6',
+  });
 }

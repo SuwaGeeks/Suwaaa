@@ -9,7 +9,11 @@ interface UserInfoBarProps {
   onSettingClick: () => void;
 }
 
-const UserInfoBar: React.FC<UserInfoBarProps> = ({ userName, userId, onSettingClick }) => {
+const UserInfoBar: React.FC<UserInfoBarProps> = ({
+  userName,
+  userId,
+  onSettingClick,
+}) => {
   return (
     <div className={styles.userInfoBar}>
       <div className={styles.userInfo}>
