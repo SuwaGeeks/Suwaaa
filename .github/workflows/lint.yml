@@ -1,0 +1,23 @@
+name: Lint
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: CheckOut
+      uses: actions/checkout@v3
+    - name : setup node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache-dependency-path: ./suwaaa-app/yarn.lock
+        cache: yarn
+    - name: yarn install
+      working-directory: ./suwaaa-app
+      run: yarn install
+    - name: Run test
+      working-directory: ./suwaaa-app
+      run: yarn lint

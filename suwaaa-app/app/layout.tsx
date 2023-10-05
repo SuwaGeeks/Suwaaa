@@ -6,7 +6,7 @@ import { Noto_Sans_JP } from "next/font/google"
 export const metadata: Metadata = {
   title: 'Suwaaa',
   description: '諏訪のお店を再発見',
-}
+};
 
 const font = Noto_Sans_JP({
   weight: ["400", "500"],
@@ -17,7 +17,7 @@ const font = Noto_Sans_JP({
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ja">
@@ -27,5 +27,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  )
+  );
 }

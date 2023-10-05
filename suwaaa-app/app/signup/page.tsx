@@ -1,5 +1,5 @@
 // pages/signup.tsx
-'use client'
+'use client';
 import { useState, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation'
 import { Button, Container, TextField, Stack, Box, Typography, Alert, AlertTitle, IconButton } from '@mui/material';
@@ -10,13 +10,13 @@ import styles from './page.module.css';
 
 export default function Signup() {
   const router = useRouter();
-
   const [showAlert, setShowAlert] = useState(false);
   const [email, setEmail] = useState('');
   const [schoolEmail, setSchoolEmaill] = useState('')
   const [password, setPassword] = useState('');
   const [isLengthValid, setIsLengthValid] = useState(false);
-  const [isCharacterValid, setIsCharacterValid] = useState(false);
+  const [isCharacterValid, setIsCharacterValid] =
+    useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidSchoolEmail, setIsValidSchoolEmail] = useState(false);
 
@@ -38,22 +38,24 @@ export default function Signup() {
     const hasUppercase = /[A-Z]/.test(password);
     const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
     setIsCharacterValid(hasUppercase && hasSpecialCharacter);
+
   };
 
-  const signup = async (email: string, password: string) => {
+  const signup = async (
+    email: string,
+    password: string
+  ) => {
     try {
-      const res = await fetch('/api/signup',
-        {
-          method: 'POST',
-          body: JSON.stringify({ email, password })
-        }
-      )
-      console.log(res)
-      router.push('/home')
-    } catch(e) {
-      alert('ログインに失敗しました')
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+      });
+      console.log(res);
+      // router.push('/home')
+    } catch (e) {
+      alert('ログインに失敗しました');
     }
-  }
+  };
 
   return (
     <Box component="div">

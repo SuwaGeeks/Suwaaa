@@ -22,18 +22,18 @@ const Home: React.FC = () => {
       thumbnail: 'thumbnail2.jpg',
     },
     {
-        id: '3',
-        name: '店舗3',
-        genre: 'ジャンル2',
-        message: '一言メッセージ2',
-        thumbnail: 'thumbnail2.jpg',
+      id: '3',
+      name: '店舗3',
+      genre: 'ジャンル2',
+      message: '一言メッセージ2',
+      thumbnail: 'thumbnail2.jpg',
     },
     {
-        id: '4',
-        name: '店舗4',
-        genre: 'ジャンル2',
-        message: '一言メッセージ2',
-        thumbnail: 'thumbnail2.jpg',
+      id: '4',
+      name: '店舗4',
+      genre: 'ジャンル2',
+      message: '一言メッセージ2',
+      thumbnail: 'thumbnail2.jpg',
     },
   ];
 
@@ -44,7 +44,10 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <UserInfo userName={userInfo.userName} userId={userInfo.userId} />
+      <UserInfo
+        userName={userInfo.userName}
+        userId={userInfo.userId}
+      />
       <StoreList stores={stores} />
     </div>
   );
