@@ -1,7 +1,7 @@
-import './globals.css'
-import styled from './layout.module.css'
-import type { Metadata } from 'next'
-import { Noto_Sans_JP } from "next/font/google"
+import './globals.css';
+import styled from './layout.module.css';
+import type { Metadata } from 'next';
+import { Noto_Sans_JP } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'Suwaaa',
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const font = Noto_Sans_JP({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  display: "swap"
-})
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -22,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={font.className}>
-        <main className={styled.container}>
-          { children }
-        </main>
+        <main className={styled.container}>{children}</main>
       </body>
     </html>
   );
